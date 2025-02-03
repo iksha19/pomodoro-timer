@@ -1,153 +1,71 @@
-/* Body Styling */
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #FFD5CD, #FFB5A7);
-  margin: 0;
-  padding: 0;
+  background-color: #f9f9f9;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden;
+  margin: 0;
 }
 
-/* Main Container Styling */
-.pomodoro-container {
-  text-align: center;
-  background-color: #FFF5EE;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 400px;
-  animation: popIn 0.5s ease-in-out;
-}
-
-/* Cute Cat Face Design */
-.cat-face {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  background: #FFE6E0;
-  border-radius: 50%;
-  margin: 0 auto 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.cat-ear {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background: #FFE6E0;
-  border-radius: 0 50% 50% 50%;
-  top: -20px;
-}
-
-.left-ear {
-  transform: rotate(-45deg);
-  left: -20px;
-}
-
-.right-ear {
-  transform: rotate(45deg);
-  right: -20px;
-}
-
-.cat-eye {
-  position: absolute;
-  width: 20px;
-  height: 30px;
-  background: #333;
-  border-radius: 50%;
-  top: 40px;
-}
-
-.left-eye {
-  left: 30px;
-}
-
-.right-eye {
-  right: 30px;
-}
-
-.cat-nose {
-  position: absolute;
-  width: 15px;
-  height: 10px;
-  background: pink;
-  top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-}
-
-.cat-mouth {
-  position: absolute;
-  width: 30px;
-  height: 15px;
-  border-top: 2px solid #333;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 0 0 50% 50%;
-}
-
-.cat-whiskers {
-  position: absolute;
-  width: 40px;
-  height: 2px;
-  background: #333;
-  top: 70px;
-}
-
-.left-whiskers {
-  left: -45px;
-}
-
-.right-whiskers {
-  right: -45px;
-}
-
-/* Timer Display Styling */
-#timer-display {
-  font-size: 48px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-}
-
-/* Button Controls */
-.controls {
+.strawberry-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
 }
 
-.controls button {
-  background: #FFB5A7;
-  border: none;
-  color: #FFF;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+.strawberry {
+  position: relative;
+  width: 150px;
+  height: 200px;
 }
 
-.controls button:hover {
-  background-color: #FF8364;
-  transform: scale(1.1);
+.top-leaves {
+  position: absolute;
+  top: -20px;
+  left: 35px;
+  width: 80px;
+  height: 50px;
 }
 
-/* Animation */
-@keyframes popIn {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+.leaf {
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  background-color: #76b041;
+  border-radius: 50%;
+  transform: rotate(-30deg);
 }
+
+.leaf.left {
+  left: 0;
+  transform: rotate(-45deg);
+}
+
+.leaf.right {
+  right: 0;
+  transform: rotate(45deg);
+}
+
+.strawberry-body {
+  position: relative;
+  background-color: #e74c3c;
+  border-radius: 50%;
+  width: 150px;
+  height: 200px;
+}
+
+.seed {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f39c12;
+  border-radius: 50%;
+}
+
+.seed1 { top: 40px; left: 50px; }
+.seed2 { top: 60px; left: 90px; }
+.seed3 { top: 80px; left: 60px; }
+.seed4 { top: 120px; left: 80px; }
+.seed5 { top: 140px; left: 40px; }
+.seed6 { top: 160px; left: 100px; }
+
