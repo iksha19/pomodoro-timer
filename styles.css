@@ -1,38 +1,62 @@
+/* Body Styling */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #FFD5CD;
+  background: linear-gradient(135deg, #FFD5CD, #FFB5A7);
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
+/* Main Container Styling */
 .pomodoro-container {
   text-align: center;
   background-color: #FFF5EE;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  animation: popIn 0.5s ease-in-out;
 }
 
+/* Cat Image Styling */
 .cat-image {
-  width: 150px;
-  margin-bottom: 20px;
+  width: 120px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
 }
 
+.cat-image:hover {
+  transform: scale(1.1);
+}
+
+/* Timer Display Styling */
 #timer-display {
-  font-size: 48px;
+  font-size: 56px;
+  font-weight: bold;
   color: #333;
   margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+/* Button Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .controls button {
   background: none;
   border: none;
-  margin: 0 10px;
   cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .controls button img {
@@ -40,7 +64,39 @@ body {
   height: 40px;
 }
 
-.controls button:hover img {
+.controls button:hover {
+  background-color: #FFD5CD;
   transform: scale(1.1);
-  transition: 0.3s;
+}
+
+.controls button:hover img {
+  filter: brightness(1.2);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  #timer-display {
+    font-size: 48px;
+  }
+
+  .cat-image {
+    width: 100px;
+  }
+
+  .controls button img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Animation */
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
