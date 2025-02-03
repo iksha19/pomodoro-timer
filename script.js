@@ -1,58 +1,47 @@
-let timerDuration = 25 * 60; // 25 minutes in seconds
-let remainingTime = timerDuration;
-let timerInterval = null;
+let timer;
+let timeLeft = 25 * 60;
+let isRunning = false;
 
-const timerDisplay = document.getElementById("timer-display");
-const playButton = document.getElementById("play-button");
-const pauseButton = document.getElementById("pause-button");
-const resetButton = document.getElementById("reset-button");
+const timerDisplay = document.getElementById("timer");
+const startBtn = document.getElementById("start");
+const pauseBtn = document.getElementById("pause");
+const resetBtn = document.getElementById("reset");
 
-// Format seconds to MM:SS
-function formatTime(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const sec = seconds % 60;
-  return `${String(minutes).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
+function updateDisplay() {
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    timerDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 }
 
-// Update Timer Display
-function updateTimerDisplay() {
-  timerDisplay.textContent = formatTime(remainingTime);
-}
-
-// Start Timer
 function startTimer() {
-  if (!timerInterval) {
-    timerInterval = setInterval(() => {
-      if (remainingTime > 0) {
-        remainingTime--;
-        updateTimerDisplay();
-      } else {
-        clearInterval(timerInterval);
-        timerInterval = null;
-        alert("Time's up! Take a break, meow! 🐾");
-      }
-    }, 1000);
-  }
+    if (!isRunning) {
+        isRunning = true;
+        timer = setInterval(() => {
+            if (timeLeft > 0) {
+                timeLeft--;
+                updateDisplay();
+            } else {
+                clearInterval(timer);
+                alert("🍓 Time's up! Take a break! ☕");
+            }
+        }, 1000);
+    }
 }
 
-// Pause Timer
 function pauseTimer() {
-  clearInterval(timerInterval);
-  timerInterval = null;
+    clearInterval(timer);
+    isRunning = false;
 }
 
-// Reset Timer
 function resetTimer() {
-  clearInterval(timerInterval);
-  timerInterval = null;
-  remainingTime = timerDuration;
-  updateTimerDisplay();
+    clearInterval(timer);
+    isRunning = false;
+    timeLeft = 25 * 60;
+    updateDisplay();
 }
 
-// Event Listeners
-playButton.addEventListener("click", startTimer);
-pauseButton.addEventListener("click", pauseTimer);
-resetButton.addEventListener("click", resetTimer);
+startBtn.addEventListener("click", startTimer);
+pauseBtn.addEventListener("click", pauseTimer);
+resetBtn.addEventListener("click", resetTimer);
 
-// Initialize Display
-updateTimerDisplay();
+updateDisplay();
