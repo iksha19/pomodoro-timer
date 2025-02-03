@@ -1,46 +1,58 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #FFD5CD;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+let timerDuration = 25 * 60; // 25 minutes in seconds
+let remainingTime = timerDuration;
+let timerInterval = null;
+
+const timerDisplay = document.getElementById("timer-display");
+const playButton = document.getElementById("play-button");
+const pauseButton = document.getElementById("pause-button");
+const resetButton = document.getElementById("reset-button");
+
+// Format seconds to MM:SS
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const sec = seconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
 }
 
-.pomodoro-container {
-  text-align: center;
-  background-color: #FFF5EE;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+// Update Timer Display
+function updateTimerDisplay() {
+  timerDisplay.textContent = formatTime(remainingTime);
 }
 
-.cat-image {
-  width: 150px;
-  margin-bottom: 20px;
+// Start Timer
+function startTimer() {
+  if (!timerInterval) {
+    timerInterval = setInterval(() => {
+      if (remainingTime > 0) {
+        remainingTime--;
+        updateTimerDisplay();
+      } else {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        alert("Time's up! Take a break, meow! 🐾");
+      }
+    }, 1000);
+  }
 }
 
-#timer-display {
-  font-size: 48px;
-  color: #333;
-  margin-bottom: 20px;
+// Pause Timer
+function pauseTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null;
 }
 
-.controls button {
-  background: none;
-  border: none;
-  margin: 0 10px;
-  cursor: pointer;
+// Reset Timer
+function resetTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+  remainingTime = timerDuration;
+  updateTimerDisplay();
 }
 
-.controls button img {
-  width: 40px;
-  height: 40px;
-}
+// Event Listeners
+playButton.addEventListener("click", startTimer);
+pauseButton.addEventListener("click", pauseTimer);
+resetButton.addEventListener("click", resetTimer);
 
-.controls button:hover img {
-  transform: scale(1.1);
-  transition: 0.3s;
-}
+// Initialize Display
+updateTimerDisplay();
