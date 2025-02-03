@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro Timer</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Pomodoro Timer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Background Image -->
-    <div class="background">
-        <img src="images/background.png" alt="Background">
+  <div class="pomodoro-container">
+    <img src="images/cat.png" alt="Cute Cat" class="cat-image">
+    <h1 id="timer-display">25:00</h1>
+    <div class="controls">
+      <button id="play-button">
+        <img src="images/play.png" alt="Play">
+      </button>
+      <button id="pause-button">
+        <img src="images/pause.png" alt="Pause">
+      </button>
+      <button id="reset-button">
+        <img src="images/reset.png" alt="Reset">
+      </button>
     </div>
-
-    <!-- Timer Display -->
-    <div class="timer-container">
-        <h1 id="timer">25:00</h1>
-    </div>
-
-    <!-- Buttons -->
-    <div class="buttons">
-        <img src="images/start-button.png" alt="Start" id="start-btn">
-        <img src="images/pause-button.png" alt="Pause" id="pause-btn">
-        <img src="images/reset-button.png" alt="Reset" id="reset-btn">
-    </div>
-
-    <script src="script.js"></script>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
