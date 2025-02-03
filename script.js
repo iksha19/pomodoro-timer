@@ -1,47 +1,46 @@
-let timeLeft = 1500; // 25 minutes in seconds
-let timer;
-let isRunning = false;
-
-const timerDisplay = document.getElementById("timer");
-const startBtn = document.getElementById("start-btn");
-const pauseBtn = document.getElementById("pause-btn");
-const resetBtn = document.getElementById("reset-btn");
-
-function updateTimer() {
-    let minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
-    timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #FFD5CD;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-function startTimer() {
-    if (!isRunning) {
-        isRunning = true;
-        timer = setInterval(() => {
-            if (timeLeft > 0) {
-                timeLeft--;
-                updateTimer();
-            } else {
-                clearInterval(timer);
-                alert("Time's up!");
-            }
-        }, 1000);
-    }
+.pomodoro-container {
+  text-align: center;
+  background-color: #FFF5EE;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-function pauseTimer() {
-    clearInterval(timer);
-    isRunning = false;
+.cat-image {
+  width: 150px;
+  margin-bottom: 20px;
 }
 
-function resetTimer() {
-    clearInterval(timer);
-    isRunning = false;
-    timeLeft = 1500;
-    updateTimer();
+#timer-display {
+  font-size: 48px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-startBtn.addEventListener("click", startTimer);
-pauseBtn.addEventListener("click", pauseTimer);
-resetBtn.addEventListener("click", resetTimer);
+.controls button {
+  background: none;
+  border: none;
+  margin: 0 10px;
+  cursor: pointer;
+}
 
-updateTimer();
+.controls button img {
+  width: 40px;
+  height: 40px;
+}
+
+.controls button:hover img {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
