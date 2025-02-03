@@ -23,20 +23,94 @@ body {
   animation: popIn 0.5s ease-in-out;
 }
 
-/* Cat Image Styling */
-.cat-image {
+/* Cute Cat Face Design */
+.cat-face {
+  position: relative;
   width: 120px;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease;
+  height: 120px;
+  background: #FFE6E0;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.cat-image:hover {
-  transform: scale(1.1);
+.cat-ear {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #FFE6E0;
+  border-radius: 0 50% 50% 50%;
+  top: -20px;
+}
+
+.left-ear {
+  transform: rotate(-45deg);
+  left: -20px;
+}
+
+.right-ear {
+  transform: rotate(45deg);
+  right: -20px;
+}
+
+.cat-eye {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background: #333;
+  border-radius: 50%;
+  top: 40px;
+}
+
+.left-eye {
+  left: 30px;
+}
+
+.right-eye {
+  right: 30px;
+}
+
+.cat-nose {
+  position: absolute;
+  width: 15px;
+  height: 10px;
+  background: pink;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.cat-mouth {
+  position: absolute;
+  width: 30px;
+  height: 15px;
+  border-top: 2px solid #333;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 50% 50%;
+}
+
+.cat-whiskers {
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background: #333;
+  top: 70px;
+}
+
+.left-whiskers {
+  left: -45px;
+}
+
+.right-whiskers {
+  right: -45px;
 }
 
 /* Timer Display Styling */
 #timer-display {
-  font-size: 56px;
+  font-size: 48px;
   font-weight: bold;
   color: #333;
   margin-bottom: 20px;
@@ -51,42 +125,19 @@ body {
 }
 
 .controls button {
-  background: none;
+  background: #FFB5A7;
   border: none;
+  color: #FFF;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.controls button img {
-  width: 40px;
-  height: 40px;
-}
-
 .controls button:hover {
-  background-color: #FFD5CD;
+  background-color: #FF8364;
   transform: scale(1.1);
-}
-
-.controls button:hover img {
-  filter: brightness(1.2);
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-  #timer-display {
-    font-size: 48px;
-  }
-
-  .cat-image {
-    width: 100px;
-  }
-
-  .controls button img {
-    width: 35px;
-    height: 35px;
-  }
 }
 
 /* Animation */
